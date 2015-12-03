@@ -67,7 +67,7 @@ android {
 
 
     productFlavors {
-      //ovpn3
+      ovpn3
 
       normal
 
