@@ -125,10 +125,8 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
 	}
 
 
-
 	@Override
-	public boolean tun_builder_add_address(String address, int prefix_length,
-			boolean ipv6) {
+	public boolean tun_builder_add_address(String address, int prefix_length, String gateway, boolean ipv6, boolean net30) {
 		if(!ipv6)
 			mService.setLocalIP(new CIDRIP(address, prefix_length));
 		else
