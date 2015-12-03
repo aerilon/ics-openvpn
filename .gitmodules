@@ -7,3 +7,6 @@
 [submodule "main/snappy"]
 	path = main/snappy
 	url = https://github.com/aerilon/snappy.git
+[submodule "main/polarssl"]
+	path = main/polarssl
+	url = https://github.com/aerilon/mbedtls.git

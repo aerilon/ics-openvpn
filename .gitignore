@@ -6,7 +6,6 @@ main/obj/
 .navigation
 google-breakpad/
 ovpn3/boost
-polarssl
 local.properties
 proguard-project.txt
 build.xml
