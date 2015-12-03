@@ -30,10 +30,15 @@ ifeq ($(WITH_POLAR),1)
 endif
 ifeq ($(WITH_OPENVPN3),1)
 	USE_POLAR=1
+	USE_SNAPPY=1
 endif
 
 ifeq ($(USE_POLAR),1)
 	include polarssl/Android.mk
+endif
+
+ifeq ($(USE_SNAPPY),1)
+	include snappy/Android.mk
 endif
 
 include openvpn/Android.mk
