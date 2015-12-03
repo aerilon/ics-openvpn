@@ -141,8 +141,7 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
 	}
 
 	@Override
-	public boolean tun_builder_reroute_gw(String server_address,
-			boolean server_address_ipv6, boolean ipv4, boolean ipv6, long flags) {
+	public boolean tun_builder_reroute_gw(boolean ipv4, boolean ipv6, long flags) {
 		// ignore
 		return true;
 	}
