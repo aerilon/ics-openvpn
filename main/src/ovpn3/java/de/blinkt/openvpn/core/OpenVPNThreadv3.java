@@ -28,6 +28,8 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
 
 	private VpnProfile mVp;
 	private OpenVPNService mService;
+	private pauseReason lastPauseReason = pauseReason.noNetwork;
+	private PausedStateCallback mPauseCallback;
 
 	class StatusPoller implements  Runnable 
 	{
@@ -226,9 +228,38 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
 	}
 
     @Override
+    public void setPauseCallback(PausedStateCallback callback) {
+        mPauseCallback = callback;
+    }
+
+    public void signalusr1() {
+	    /*
+        if (!mWaitingForRelease)
+            managmentCommand("signal SIGUSR1\n");
+        else
+            // If signalusr1 is called update the state string
+            // if there is another for stopping
+            VpnStatus.updateStatePause(lastPauseReason);
+	    */
+    }
+
+    @Override
     public void pause(pauseReason pauseReason)
     {
-        pause();
+        lastPauseReason = pauseReason;
+        signalusr1();
+    }
+
+    @Override
+    public void networkChange(boolean samenetwork) {
+	    /*
+        if (mWaitingForRelease)
+            releaseHold();
+        else if (samenetwork)
+            managmentCommand("network-change samenetwork\n");
+        else
+            managmentCommand("network-change\n");
+	    */
     }
 
 	@Override
